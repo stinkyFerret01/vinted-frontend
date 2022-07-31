@@ -37,7 +37,7 @@ class Ranger extends React.Component {
               style={{
                 ...props.style,
                 height: "6px",
-                width: "100%",
+                width: "16rem",
                 backgroundColor: "#ccc",
                 allowOverlap: true,
               }}
@@ -58,13 +58,13 @@ class Ranger extends React.Component {
             />
           )}
         />
-        <output style={{ marginTop: "30px" }} id="output">
+        {/* <output style={{ marginTop: "30px" }} id="output">
           {pack.state.min}
         </output>
         <br />
         <output style={{ marginTop: "30px" }} id="output">
           {pack.state.max}
-        </output>
+        </output> */}
       </div>
     );
   }

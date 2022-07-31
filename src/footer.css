@@ -16,12 +16,14 @@ footer {
   }
   #promo-reacteur {
     color: #5D48D2;
+    text-decoration: none;
+    font-weight: 900;
     margin-left: 6px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 3px;
   }
   #promo-reacteur:hover {
-    background-color: #333333;
+    text-decoration: underline;
     cursor: alias;
   }
   #promo-reacteur img {
@@ -30,12 +32,14 @@ footer {
   }
   #promo-perso {
     color: #0C66C2;
+    text-decoration: none;
+    font-weight: 900;
     margin-left: 6px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 3px;
   }
   #promo-perso:hover {
-    background-color: #333333;
+    text-decoration: underline;
     cursor: alias;
   }
   #promo-perso img {
@@ -44,12 +48,14 @@ footer {
   }
   #promo-github {
     color: darkorange;
+    text-decoration: none;
+    font-weight: 900;
     margin-left: 6px;
-    background-color: #333333;
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 3px;
   }
   #promo-github:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    text-decoration: underline;
     cursor: alias;
   }
   #promo-github img {

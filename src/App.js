@@ -85,7 +85,7 @@ function App() {
   return isLoading ? (
     <Loading />
   ) : (
-    <body className="App">
+    <div className="App">
       <Router>
         <Header {...pack} />
         <Routes>
@@ -93,6 +93,10 @@ function App() {
             path="/"
             element={<Home setSearch={setSearch} data={data} />}
           />
+          {/* <Route
+            path="/home"
+            element={<Home setSearch={setSearch} data={data} />}
+          /> */}
           <Route path="/loading" element={<Loading />} />
           <Route
             path="/offers/:id"
@@ -108,7 +112,7 @@ function App() {
         </Routes>
       </Router>
       <Footer />
-    </body>
+    </div>
   );
 }
 

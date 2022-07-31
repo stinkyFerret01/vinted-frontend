@@ -16,8 +16,9 @@ const Header = ({ ...pack }) => {
       </Link>
       <article id="filter" className={pack.search ? "display" : "hidden"}>
         <input
+          id="filterTitle"
           type="text"
-          placeholder="Search your emoji"
+          placeholder="chercher des articles"
           value={pack.filter.title}
           onChange={(event) => {
             const step = { ...pack.filter };
@@ -35,24 +36,32 @@ const Header = ({ ...pack }) => {
           </div>
         </div>
       </article>
-      <Link
-        className={Cookies.get("token") ? "hidden" : "display"}
-        to="/signup"
-      >
-        Sign-up !!
-      </Link>
-      <Link className={Cookies.get("token") ? "hidden" : "display"} to="/login">
-        Login !!
-      </Link>
-      <Link className={Cookies.get("token") ? "display" : "hidden"} to="/login">
-        vends tes articles
-      </Link>
-      <button
-        className={Cookies.get("token") ? "display" : "hidden"}
-        onClick={removeToken}
-      >
-        Se Déconnecter
-      </button>
+      <div class="buttonKit">
+        <Link
+          className={Cookies.get("token") ? "hidden" : "display button"}
+          to="/signup"
+        >
+          Sign-up !!
+        </Link>
+
+        <Link
+          className={Cookies.get("token") ? "hidden" : "display button"}
+          to="/login"
+        >
+          Login !!
+        </Link>
+
+        <Link className={"display button2"} to="/login">
+          vends tes articles
+        </Link>
+
+        <button
+          className={Cookies.get("token") ? "display button" : "hidden"}
+          onClick={removeToken}
+        >
+          Se Déconnecter
+        </button>
+      </div>
     </header>
   );
 };

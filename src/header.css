@@ -1,6 +1,6 @@
 header {   
     height: 6rem;
-    background-color: burlywood;
+ 
     display: flex; 
     flex-direction: row;
     align-items: center;
@@ -12,9 +12,16 @@ header img {
 }
 
 #filter {
-    width: 24rem;
+    width: 36rem;
     display: flex;
     flex-direction: column;
+}
+
+#filterTitle {
+    height: 1.6rem;
+    background-color: rgba(240, 240, 240);
+    border-radius: 8px;
+    border: none
 }
 
 #filterPrice {
@@ -25,15 +32,68 @@ header img {
 #filterSort {
     height: 2rem;
     width: 30%;
-    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  
 }
 
 #filterValues {
+    height: 1.4rem;
     width: 55%;
-    background-color: blueviolet;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 10px 10px;
+
+}
+
+.buttonKit {
+    height: 2rem;
+    width: 28rem;
+    display: flex;
+    justify-content: space-around;
+
+}
+.button {
+    height: 1.4rem;
+    width: 8rem;
+    background-color: white;
+    border: solid #0DB0BA 2px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0DB0BA;
+}
+.button:hover {
+    background-color:#0DB0BA;
+    color:  white;
+}
+
+.button2 {
+    height: 1.4rem;
+    width: 8rem;
+    background-color:#0DB0BA;
+    border: solid #0DB0BA 2px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.button2:hover {
+    background-color: white;
+    color: #0DB0BA;
 }
 
 #changePage {
     color: #0DB0BA;
 }
+
+
 
