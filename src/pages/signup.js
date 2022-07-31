@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = (props) => {
   //les States
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,9 +31,9 @@ const Signup = () => {
     navigate("/login");
     console.log(response.data);
   };
-  //ça commence !!
   return (
     <section>
+      {props.setSearch(false)}
       <h1>Sign-up !!</h1>
       <article>
         <form onSubmit={handleSubmit}>

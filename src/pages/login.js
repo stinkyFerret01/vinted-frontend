@@ -2,12 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
-const Login = () => {
+const Login = (props) => {
   //les States
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
 
   //les Fonctions
 
@@ -26,11 +25,13 @@ const Login = () => {
         password: password,
       }
     );
+    props.setToken(response.data.token);
+    Cookies.set("token", response.data.token, { expires: 7 });
     console.log(response.data.token);
-    setToken(response.data.token);
   };
   return (
     <section>
+      {props.setSearch(false)}
       <h1>Login !!</h1>
       <article>
         <form onSubmit={handleSubmit}>
@@ -49,7 +50,7 @@ const Login = () => {
           <input type="Submit" value="submit" />
         </form>
         <br />
-        <p>{token}</p>
+        <p>{Cookies.get("token")}</p>
       </article>
     </section>
   );
