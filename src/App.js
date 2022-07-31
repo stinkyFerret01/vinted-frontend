@@ -5,8 +5,6 @@ import * as React from "react";
 // import React from "react";
 import fetchData from "./functions/fetchData";
 
-// const navigate = useNavigate();
-
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -31,18 +29,6 @@ function App() {
     skip: 0,
     limit: 5,
   });
-
-  ///////TRAVAUX DELAY REQUETE////////
-  //
-  //   let timeoutId;
-  // let delay = 500// en millisecond;
-  // const onInputChange = ()=>{
-  //      clearTimeout(timeoutId);  // efface la prise en charge d'un timeout déjà créé
-  //
-  //      timeoutId = setTimeout( ()=>{
-  //            //fais la requete ici
-  //       },delay);
-  // }
 
   //////BLACK-MAGIC///////see <Ranger />
   // const magicObj = {
@@ -72,10 +58,29 @@ function App() {
 
   //Refresh
 
-  useEffect(() => {
-    fetchData({ ...pack });
-  }, [token, filter]);
+  ///////TRAVAUX DELAY REQUETE////////
+  //
+  // let timeoutId;
+  // let delay = 500// en millisecond;
+  // const onInputChange = ()=>{
+  //      clearTimeout(timeoutId);  // efface la prise en charge d'un timeout déjà créé
+  //
+  //      timeoutId = setTimeout( ()=>{
+  //            //fais la requete ici
+  //       },delay);
+  // }
 
+  let timeoutID;
+  let delay = 3000;
+  useEffect(() => {
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(() => {
+      fetchData({ ...pack });
+    }, delay);
+  }, [priceInput, token, filter]);
+  ///////////////////////////////////////
+
+  ////za commenze izi !!
   return isLoading ? (
     <Loading />
   ) : (
