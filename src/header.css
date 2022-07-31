@@ -1,0 +1,39 @@
+header {   
+    height: 6rem;
+    background-color: burlywood;
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header img {
+    height: 2.4rem;
+}
+
+#filter {
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#filterPrice {
+    display: flex;
+    width: 100%;
+}
+
+#filterSort {
+    height: 2rem;
+    width: 30%;
+    background-color: aqua;
+}
+
+#filterValues {
+    width: 55%;
+    background-color: blueviolet;
+}
+
+#changePage {
+    color: #0DB0BA;
+}
+

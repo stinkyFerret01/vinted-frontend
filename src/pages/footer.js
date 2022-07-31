@@ -10,7 +10,7 @@ const Footer = () => {
           rel="noreferrer"
           id="promo-reacteur"
         >
-          <img src="./logo-reacteur.jpeg" alt="yo" />
+          <img src="./logo-reacteur.jpeg" alt="logo du réacteur" />
           Réacteur
         </a>{" "}
         (promo ORION-2022)
@@ -22,7 +22,7 @@ const Footer = () => {
           rel="noreferrer"
           id="promo-perso"
         >
-          <img src="./logo-linkedin.png" alt="yo" />
+          <img src="./logo-linkedin.png" alt="logo de linkedin" />
           Christophe Lafon
         </a>
         <a
@@ -31,7 +31,7 @@ const Footer = () => {
           rel="noreferrer"
           id="promo-github"
         >
-          <img src="./github.png" alt="yo" />
+          <img src="./github.png" alt="logo de github" />
           StinkyFerret01
         </a>
       </nav>

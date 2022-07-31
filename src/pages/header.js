@@ -5,7 +5,6 @@ import Ranger from "./ranger";
 
 const Header = ({ ...pack }) => {
   const removeToken = () => {
-    const pack = { pack };
     pack.setToken(null);
     Cookies.remove("token");
   };
@@ -13,9 +12,9 @@ const Header = ({ ...pack }) => {
   return (
     <header>
       <Link to="/">
-        <h1>Vinted</h1>
+        <img src="./logo-vinted.png" alt="logo de vinted" />
       </Link>
-      <article className={pack.search ? "display" : "hidden"}>
+      <article id="filter" className={pack.search ? "display" : "hidden"}>
         <input
           type="text"
           placeholder="Search your emoji"
@@ -26,7 +25,15 @@ const Header = ({ ...pack }) => {
             pack.setFilter({ ...step });
           }}
         />
-        <Ranger {...pack} />
+        <div id="filterPrice">
+          <div id="filterSort">
+            <h4>trier par prix:</h4>
+          </div>
+          <div id="filterValues">
+            <h4>prix entre:</h4>
+            <Ranger {...pack} />
+          </div>
+        </div>
       </article>
       <Link
         className={Cookies.get("token") ? "hidden" : "display"}
@@ -36,6 +43,9 @@ const Header = ({ ...pack }) => {
       </Link>
       <Link className={Cookies.get("token") ? "hidden" : "display"} to="/login">
         Login !!
+      </Link>
+      <Link className={Cookies.get("token") ? "display" : "hidden"} to="/login">
+        vends tes articles
       </Link>
       <button
         className={Cookies.get("token") ? "display" : "hidden"}

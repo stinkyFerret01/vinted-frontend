@@ -37,7 +37,7 @@ class Ranger extends React.Component {
               style={{
                 ...props.style,
                 height: "6px",
-                width: "24rem",
+                width: "100%",
                 backgroundColor: "#ccc",
                 allowOverlap: true,
               }}
@@ -52,7 +52,7 @@ class Ranger extends React.Component {
                 ...props.style,
                 height: "1rem",
                 width: "1rem",
-                backgroundColor: "#999",
+                backgroundColor: "#0DB0BA",
                 borderRadius: "50%",
               }}
             />

@@ -18,6 +18,7 @@ import Footer from "./pages/footer";
 function App() {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [timeoutId, setTimeoutId] = useState(-1);
   const [token, setToken] = useState(null);
   const [counter, setCounter] = useState(0);
   const [priceInput, setPriceInput] = useState({ min: 20, max: 50 });
@@ -69,14 +70,14 @@ function App() {
   //            //fais la requete ici
   //       },delay);
   // }
-
-  let timeoutID;
-  let delay = 3000;
+  let delay = 300;
   useEffect(() => {
-    clearTimeout(timeoutID);
-    timeoutID = setTimeout(() => {
-      fetchData({ ...pack });
-    }, delay);
+    clearTimeout(timeoutId);
+    setTimeoutId(
+      setTimeout(() => {
+        fetchData({ ...pack });
+      }, delay)
+    );
   }, [priceInput, token, filter]);
   ///////////////////////////////////////
 
