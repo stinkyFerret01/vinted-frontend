@@ -4,8 +4,8 @@ const fetchData = async ({ ...pack }) => {
   // const price = document.magicObj;
   const response = await axios.get(
     `https://lereacteur-vinted-api.herokuapp.com/offers?` +
-      `priceMin=${pack.filter.price.Min}` +
-      `&priceMax=${pack.filter.price.Max}` +
+      `priceMin=${pack.state.min}` +
+      `&priceMax=${pack.state.max}` +
       `&title=${pack.filter.title}` +
       `&skip=${pack.filter.skip}` +
       `&sort=${pack.filter.sort}` +

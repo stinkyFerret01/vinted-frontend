@@ -23,6 +23,9 @@ class Ranger extends React.Component {
 
           onChange={(values) => {
             pack.setState({ min: values[0], max: values[1] });
+            const step = { ...pack.filter };
+            step.price = { min: values[0], max: values[1] };
+            pack.setFilter(step);
 
             //////////BLACK-MAGIC////////
             // price.setState({ min: values[0], max: values[1] });
@@ -56,11 +59,11 @@ class Ranger extends React.Component {
           )}
         />
         <output style={{ marginTop: "30px" }} id="output">
-          {pack.filter.price.Min}
+          {pack.state.min}
         </output>
         <br />
         <output style={{ marginTop: "30px" }} id="output">
-          {pack.filter.price.Max}
+          {pack.state.max}
         </output>
       </div>
     );

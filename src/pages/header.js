@@ -5,6 +5,7 @@ import Ranger from "./ranger";
 
 const Header = ({ ...pack }) => {
   const removeToken = () => {
+    const pack = { pack };
     pack.setToken(null);
     Cookies.remove("token");
   };
