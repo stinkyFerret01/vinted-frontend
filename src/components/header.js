@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 import Ranger from "./ranger";
 
 const Header = ({ ...pack }) => {
+  const navigate = useNavigate();
   const removeToken = () => {
     pack.setToken(null);
     Cookies.remove("token");
+    navigate("/");
   };
 
   return (

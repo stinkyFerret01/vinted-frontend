@@ -7,8 +7,16 @@ const Home = ({ ...pack }) => {
       {pack.setSearch(true)}
       {pack.data.offers.map((offer, index) => {
         return (
-          <article key={index}>
-            <Link to={`/offers/${offer._id}`}>{offer.product_name}</Link>
+          <article className="vignette" key={index}>
+            <Link to={`/offers/${offer._id}`}>
+              <div>
+                <h3>{offer.product_name}</h3>
+                <img
+                  src={offer.product_image.secure_url}
+                  alt={offer.product_name}
+                />
+              </div>
+            </Link>
           </article>
         );
       })}

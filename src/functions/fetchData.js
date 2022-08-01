@@ -6,6 +6,8 @@ const fetchData = async ({ ...pack }) => {
     `https://lereacteur-vinted-api.herokuapp.com/offers?` +
       `priceMin=${pack.state.min}` +
       `&priceMax=${pack.state.max}` +
+      // `priceMin=${price.state.min}` +
+      // `&priceMax=${price.state.max}` +
       `&title=${pack.filter.title}` +
       `&page=${pack.filter.skip}` +
       `&sort=${pack.filter.sort}` +

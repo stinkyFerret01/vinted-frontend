@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
-const Login = (props) => {
+const Login = ({ ...pack }) => {
   //les States
 
   const [email, setEmail] = useState("");
@@ -25,13 +25,13 @@ const Login = (props) => {
         password: password,
       }
     );
-    props.setToken(response.data.token);
+    pack.setToken(response.data.token);
     Cookies.set("token", response.data.token, { expires: 7 });
     console.log(response.data.token);
   };
   return (
     <section className="fullPage">
-      {props.setSearch(false)}
+      {pack.setSearch(false)}
       <h1>Login !!</h1>
       <article>
         <form className="formLogin" onSubmit={handleSubmit}>

@@ -1,7 +1,16 @@
-@import "reset.css";
-@import "footer.css";
-@import "header.css";
-@import "forms.css";
+/* @import "reset.css"; */
+@import "./CSS/reset.scss";
+/* @import "footer.css"; */
+@import "./CSS/footer.scss";
+/* @import "forms.css"; */
+@import "./CSS/forms.scss";
+/* @import "header.css"; */
+@import "./CSS/header.scss";
+@import "./CSS/home.scss";
+@import "./CSS/offers.scss";
+
+
+
 
 .App {
   text-align: center;
@@ -16,7 +25,6 @@
   display: none;
 }
 .fullPage {
-  height: 60vh;
   /* background-color: blue; */
 }
 

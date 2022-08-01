@@ -11,11 +11,11 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Offers from "./pages/offers";
 import Loading from "./pages/loading";
-import Header from "./pages/header";
-import Footer from "./pages/footer";
+import Header from "./components/header";
+import Footer from "./components/footer";
 import PublishOffer from "./pages/publishOffer";
 
-//les Fonctions
+//////LES FONCTIONS//////
 
 function App() {
   const [data, setData] = useState("");
@@ -42,6 +42,8 @@ function App() {
   // document.magicObj = magicObj;
   //////BLACK-MAGIC///////see <Ranger />
 
+  //////LE PROPS.PACK//////
+
   const pack = {
     state: priceInput,
     setState: setPriceInput,
@@ -61,17 +63,6 @@ function App() {
 
   //Refresh
 
-  ///////TRAVAUX DELAY REQUETE////////
-  //
-  // let timeoutId;
-  // let delay = 500// en millisecond;
-  // const onInputChange = ()=>{
-  //      clearTimeout(timeoutId);  // efface la prise en charge d'un timeout déjà créé
-  //
-  //      timeoutId = setTimeout( ()=>{
-  //            //fais la requete ici
-  //       },delay);
-  // }
   let delay = 300;
   useEffect(() => {
     clearTimeout(timeoutId);
@@ -81,7 +72,6 @@ function App() {
       }, delay)
     );
   }, [priceInput, token, filter]);
-  ///////////////////////////////////////
 
   ////za commenze izi !!
   return isLoading ? (
@@ -92,10 +82,6 @@ function App() {
         <Header {...pack} />
         <Routes>
           <Route path="/" element={<Home {...pack} />} />
-          {/* <Route
-            path="/home"
-            element={<Home setSearch={setSearch} data={data} />}
-          /> */}
           <Route path="/loading" element={<Loading />} />
           <Route
             path="/offers/:id"
@@ -103,12 +89,7 @@ function App() {
           />
           <Route path="/publish" element={<PublishOffer {...pack} />} />
           <Route path="/signup" element={<Signup setSearch={setSearch} />} />
-          <Route
-            path="/login"
-            element={
-              <Login setToken={setToken} token={token} setSearch={setSearch} />
-            }
-          />
+          <Route path="/login" element={<Login {...pack} />} />
         </Routes>
       </Router>
       <Footer />
