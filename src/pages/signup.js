@@ -32,30 +32,33 @@ const Signup = (props) => {
     console.log(response.data);
   };
   return (
-    <section>
+    <section className="fullPage">
       {props.setSearch(false)}
       <h1>Sign-up !!</h1>
       <article>
-        <form onSubmit={handleSubmit}>
+        <form className="formSignup" onSubmit={handleSubmit}>
           <input
+            className="formInput"
             type="text"
             value={name}
             placeholder="your name"
             onChange={handleNameChange}
           />
           <input
+            className="formInput"
             type="text"
             value={email}
             placeholder="your e-mail"
             onChange={handleEmailChange}
           />
           <input
+            className="formInput"
             type="text"
             value={password}
             placeholder="your password"
             onChange={handlePasswordChange}
           />
-          <input type="Submit" value="submit" />
+          <input className="formInput" type="Submit" value="submit" />
         </form>
       </article>
     </section>

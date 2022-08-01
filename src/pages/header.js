@@ -51,7 +51,10 @@ const Header = ({ ...pack }) => {
           Login !!
         </Link>
 
-        <Link className={"display button2"} to="/login">
+        <Link
+          className={"display button2"}
+          to={pack.token ? "/publish" : "/login"}
+        >
           vends tes articles
         </Link>
 

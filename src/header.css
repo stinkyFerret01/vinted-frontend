@@ -1,6 +1,6 @@
 header {   
-    height: 6rem;
- 
+    height: 20vh;
+    min-height: 6rem;
     display: flex; 
     flex-direction: row;
     align-items: center;
@@ -30,7 +30,7 @@ header img {
 }
 
 #filterSort {
-    height: 2rem;
+    height: 2.2rem;
     width: 30%;
     display: flex;
     justify-content: space-around;
@@ -39,12 +39,12 @@ header img {
 }
 
 #filterValues {
-    height: 1.4rem;
+    height: 1.6rem;
     width: 55%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
-    padding: 10px 10px;
+    margin: 10px 10px;
 
 }
 

@@ -1,0 +1,33 @@
+/* ---FORMS_GENERAL--- */
+
+.formInput {
+    height: 2rem;
+    width: 12rem;
+    background-color: lightgreen;
+
+}
+
+/* ---FORMS_SIGNUP--- */
+
+.formSignup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+   }
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  
+   }
+
+.publishOffer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+   }

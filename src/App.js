@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import "./App.css";
 import * as React from "react";
 // import React from "react";
@@ -12,6 +13,7 @@ import Offers from "./pages/offers";
 import Loading from "./pages/loading";
 import Header from "./pages/header";
 import Footer from "./pages/footer";
+import PublishOffer from "./pages/publishOffer";
 
 //les Fonctions
 
@@ -19,7 +21,7 @@ function App() {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [timeoutId, setTimeoutId] = useState(-1);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(Cookies.get("token") || null);
   const [counter, setCounter] = useState(0);
   const [priceInput, setPriceInput] = useState({ min: 20, max: 50 });
   const [search, setSearch] = useState(false);
@@ -28,7 +30,7 @@ function App() {
     title: "",
     sort: "price-asc",
     skip: 0,
-    limit: 5,
+    limit: 30,
   });
 
   //////BLACK-MAGIC///////see <Ranger />
@@ -85,14 +87,11 @@ function App() {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="App">
+    <main className="App">
       <Router>
         <Header {...pack} />
         <Routes>
-          <Route
-            path="/"
-            element={<Home setSearch={setSearch} data={data} />}
-          />
+          <Route path="/" element={<Home {...pack} />} />
           {/* <Route
             path="/home"
             element={<Home setSearch={setSearch} data={data} />}
@@ -102,6 +101,7 @@ function App() {
             path="/offers/:id"
             element={<Offers data={data} setSearch={setSearch} />}
           />
+          <Route path="/publish" element={<PublishOffer {...pack} />} />
           <Route path="/signup" element={<Signup setSearch={setSearch} />} />
           <Route
             path="/login"
@@ -112,7 +112,7 @@ function App() {
         </Routes>
       </Router>
       <Footer />
-    </div>
+    </main>
   );
 }
 

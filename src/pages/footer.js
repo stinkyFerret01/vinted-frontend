@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer>
-      {" "}
+      <article className="siteFooter"></article>
       <nav id="promo">
         Projet créé dans le cadre d'une formation au
         <a
