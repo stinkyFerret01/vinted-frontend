@@ -1,5 +1,6 @@
 import axios from "axios";
 
+let requestNumberChecker = 0;
 const fetchData = async ({ ...pack }) => {
   // const price = document.magicObj;
   const response = await axios.get(
@@ -12,12 +13,9 @@ const fetchData = async ({ ...pack }) => {
       `&page=${pack.filter.skip}` +
       `&sort=${pack.filter.sort}` +
       `&limit=${pack.filter.limit}`
-    // `priceMin=${price.state.min}` +
-    // `&priceMax=${price.state.max}` +
   );
-
-  pack.setCounter(pack.counter + 1);
-  console.warn(pack.counter);
+  requestNumberChecker++;
+  console.log("request ", requestNumberChecker);
 
   pack.setData(response.data);
   pack.setIsLoading(false);

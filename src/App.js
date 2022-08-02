@@ -2,9 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import "./App.css";
-import * as React from "react";
-// import React from "react";
+// import * as React from "react";
+import React from "react";
 import fetchData from "./functions/fetchData";
+// import {loadStripe} from
+// import {Elements} from
 
 import Home from "./pages/home";
 import Login from "./pages/login";
@@ -13,6 +15,7 @@ import Offers from "./pages/offers";
 import Loading from "./pages/loading";
 import Header from "./components/header";
 import Footer from "./components/footer";
+// import CheckoutForm from "./components/";
 import PublishOffer from "./pages/publishOffer";
 
 //////LES FONCTIONS//////
@@ -22,7 +25,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [timeoutId, setTimeoutId] = useState(-1);
   const [token, setToken] = useState(Cookies.get("token") || null);
-  const [counter, setCounter] = useState(0);
   const [priceInput, setPriceInput] = useState({ min: 20, max: 50 });
   const [search, setSearch] = useState(false);
   const [filter, setFilter] = useState({
@@ -55,13 +57,11 @@ function App() {
     setToken: setToken,
     data: data,
     setData: setData,
-    counter: counter,
-    setCounter: setCounter,
     isLoading: isLoading,
     setIsLoading: setIsLoading,
   };
 
-  //Refresh
+  //Refresh, request delayer
 
   let delay = 300;
   useEffect(() => {

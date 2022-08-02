@@ -39,7 +39,7 @@ const Header = ({ ...pack }) => {
           </div>
         </div>
       </article>
-      <div class="buttonKit">
+      <div className="buttonKit">
         <Link
           className={Cookies.get("token") ? "hidden" : "display button"}
           to="/signup"

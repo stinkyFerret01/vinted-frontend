@@ -13,8 +13,8 @@
 
 
 .App {
-  text-align: center;
-
+  font-family: Roboto;
+  color: black
 }
 
 /* ---GENERAL--- */
@@ -29,9 +29,15 @@
 }
 
 /* ---TEXT--- */
+
 h1 {
   font-size: 44px;
   background-color: rgba(200, 10, 10, 0.1);
+}
+h3 {
+  font-size: 20px;
+  text-decoration: none;
+  color: black
 }
 h4 {
   font-size: 12px;
