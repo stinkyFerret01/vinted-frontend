@@ -1,9 +1,12 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
-const Offers = ({ ...pack }) => {
-  const { id } = useParams();
-  const offer = pack.data.offers.find((offer) => offer._id === id);
+const Offers = ({ pack }) => {
+  const location = useLocation();
+  const { offer } = location.state;
   const navigate = useNavigate();
+  const { id } = useParams();
+  console.log(id);
+  console.log(pack);
   return (
     <section>
       <article>

@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, React } from "react";
 import Cookies from "js-cookie";
 import "./App.css";
-// import * as React from "react";
-import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -22,14 +20,10 @@ const stripePromise = loadStripe(
 );
 
 function App() {
-  // const [data, setData] = useState("");
-  const [data, setData] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(Cookies.get("token") || null);
-  const [priceInput, setPriceInput] = useState({ min: 20, max: 50 });
-  const [search, setSearch] = useState(false);
+  const [search, setSearch] = useState(true);
   const [filter, setFilter] = useState({
-    price: { Min: 20, Max: 50 },
+    priceSort: [20, 50],
     title: "",
     sort: "price-asc",
     skip: 0,
@@ -48,18 +42,12 @@ function App() {
   //////LE PROPS.PACK//////
 
   const pack = {
-    state: priceInput,
-    setState: setPriceInput,
     filter: filter,
     setFilter: setFilter,
-    search: search,
-    setSearch: setSearch,
     token: token,
     setToken: setToken,
-    data: data,
-    setData: setData,
-    isLoading: isLoading,
-    setIsLoading: setIsLoading,
+    search: search,
+    setSearch: setSearch,
   };
 
   //Refresh, request delayer
@@ -68,17 +56,14 @@ function App() {
   return (
     <main className="App">
       <Router>
-        <Header {...pack} />
+        <Header pack={pack} />
         <Routes>
-          <Route path="/" element={<Home {...pack} />} />
+          <Route path="/" element={<Home pack={pack} />} />
           <Route path="/loading" element={<Loading />} />
-          <Route
-            path="/offers/:id"
-            element={<Offers setSearch={setSearch} />}
-          />
-          <Route path="/publish" element={<PublishOffer {...pack} />} />
+          <Route path="/offers/:id" element={<Offers pack={pack} />} />
+          <Route path="/publish" element={<PublishOffer token={token} />} />
           <Route path="/signup" element={<Signup setSearch={setSearch} />} />
-          <Route path="/login" element={<Login {...pack} />} />
+          <Route path="/login" element={<Login pack={pack} />} />
           <Route
             path="/payment"
             element={

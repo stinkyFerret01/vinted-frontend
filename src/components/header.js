@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 
 import Ranger from "./ranger";
 
-const Header = ({ ...pack }) => {
+const Header = ({ pack }) => {
   const navigate = useNavigate();
   const removeToken = () => {
     pack.setToken(null);
@@ -26,7 +25,7 @@ const Header = ({ ...pack }) => {
           onChange={(event) => {
             const step = { ...pack.filter };
             step.title = event.target.value;
-            pack.setFilter({ ...step });
+            pack.setFilter(step);
           }}
         />
         <div id="filterPrice">
@@ -35,7 +34,7 @@ const Header = ({ ...pack }) => {
           </div>
           <div id="filterValues">
             <h4>prix entre:</h4>
-            <Ranger {...pack} />
+            <Ranger setFilter={pack.setFilter} filter={pack.filter} />
           </div>
         </div>
       </article>

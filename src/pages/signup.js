@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Signup = (props) => {
+const Signup = ({ setSearch }) => {
   //les States
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,20 +21,22 @@ const Signup = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.post(
-      "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+      "https://vinted-backend01.herokuapp.com/user/signup",
+      // "https://lereacteur-vinted-api.herokuapp.com/user/signup",
       {
-        username: name,
-        email: email,
+        name: name,
+        mail: email,
         password: password,
       }
     );
-    navigate("/login");
     console.log(response.data);
+    navigate("/login");
   };
+
   return (
     <section className="fullPage">
-      {props.setSearch(false)}
       <h1>Sign-up !!</h1>
+      setSearch(false);
       <article>
         <form className="formSignup" onSubmit={handleSubmit}>
           <input

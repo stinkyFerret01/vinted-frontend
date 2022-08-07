@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 
-const PublishOffer = ({ ...pack }) => {
+const PublishOffer = ({ token }) => {
   const [publishData, setPublishData] = useState({});
   const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log(publishData);
-    console.log(pack.token);
+    console.log(token);
 
     const formData = new FormData();
     formData.append("picture", publishData.picture);
@@ -18,14 +18,13 @@ const PublishOffer = ({ ...pack }) => {
     formData.append("condition", publishData.conditon);
     formData.append("city", publishData.city);
     formData.append("price", Number(publishData.price));
-    console.log(publishData.title);
     try {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
         formData,
         {
           headers: {
-            Authorization: "Bearer " + pack.token,
+            Authorization: "Bearer " + token,
             "Content-Type": "multipart/form-data",
           },
         }

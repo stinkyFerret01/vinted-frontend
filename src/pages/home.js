@@ -1,44 +1,49 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import fetchData from "../functions/fetchData";
-import Cookies from "js-cookie";
+import axios from "axios";
 import Loading from "./loading";
 
-const Home = ({ ...pack }) => {
+const Home = ({ pack }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState("");
   // const [timeoutId, setTimeoutId] = useState(-1);
-  // const [isLoading, setIsLoading] = useState(true);
-  const [token, setToken] = useState(Cookies.get("token") || null);
-  const [priceInput, setPriceInput] = useState({ min: 20, max: 50 });
-  const [search, setSearch] = useState(false);
-  const [filter, setFilter] = useState({
-    price: { Min: 20, Max: 50 },
-    title: "",
-    sort: "price-asc",
-    skip: 0,
-    limit: 30,
-  });
 
   // let delay = 300;
   useEffect(() => {
     // clearTimeout(timeoutId);
     // setTimeoutId(
     //   setTimeout(() => {
-    fetchData({ ...pack });
+    const fetchData = async ({ pack }) => {
+      // const price = document.magicObj;
+      const response = await axios.get(
+        `https://vinted-backend01.herokuapp.com/offer/search?` +
+          `pricemin=${pack.filter.priceSort[0]}` +
+          `&priceMax=${pack.filter.priceSort[1]}` +
+          `&search=${pack.filter.title}` +
+          `&page=${1}` +
+          `&objByPage=${10}`
+      );
+
+      setData(response.data);
+      setIsLoading(false);
+    };
+    fetchData({ pack });
     //   }, delay)
     // );
-  }, [priceInput, token, filter]);
+  }, [pack]);
 
-  return pack.isLoading ? (
+  return isLoading ? (
     <Loading />
   ) : (
     <section className="homePage">
       <img className="homepageimg" src="./homepage.jpg" alt="présentation" />
-      {pack.setSearch(true)}
+      {/* {pack.setSearch(true)} */}
       <section className="showImage">
-        {pack.data.offers.map((offer, index) => {
+        {data.offers.map((offer, index) => {
           return (
             <article className="vignette" key={index}>
-              <Link to={`/offers/${offer._id}`} data={pack.data}>
+              {/* {console.log(pack)} */}
+              <Link to={`/offers/${offer._id}`} state={{ offer: offer }}>
                 <div>
                   <div className="ownerDetails">
                     {/* {offer.owner.account.avatar.secure_url && (

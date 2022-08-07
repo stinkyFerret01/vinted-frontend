@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
-const Login = ({ ...pack }) => {
+const Login = ({ pack }) => {
   //les States
 
   const [email, setEmail] = useState("");
@@ -25,9 +25,9 @@ const Login = ({ ...pack }) => {
         password: password,
       }
     );
-    pack.setToken(response.data.token);
+    // console.log(response.data.token);
     Cookies.set("token", response.data.token, { expires: 7 });
-    console.log(response.data.token);
+    pack.setToken(response.data.token);
   };
   return (
     <section className="fullPage">
